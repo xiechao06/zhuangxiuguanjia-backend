@@ -73,7 +73,7 @@ db.transaction(async function (trx) {
   }
   units = R.groupBy(it => it.name, units)
 
-  let skuData = R.groupBy(it => it.code, require('../data/skus'))
+  let skuData = R.groupBy(it => it.code, require('./fake-data/skus'))
 
   let materials = await Promise.all(C.pickset(skus, skus.length).map(sku => oapply(
     {
